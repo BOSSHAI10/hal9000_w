@@ -1,0 +1,1 @@
+/home/alexandrusb/hal9000/UefiBootloader/../artifacts/bin/BOOTX64.EFI
