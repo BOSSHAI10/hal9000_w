@@ -1,7 +1,7 @@
 # ninja log v5
-3070	3206	1769767832041322741	ImageCreator	4e2b61367db2ebf2
-2	3070	1769767831895008098	CMakeFiles/ImageCreator.dir/src/main.cpp.o	406daa8f0043c920
-1	1499	1769767830327792210	CMakeFiles/ImageCreator.dir/src/fat.cpp.o	ccc726b047ecb191
-2	1120	1769767829905003741	CMakeFiles/ImageCreator.dir/src/gpt.cpp.o	65df1cb630cb4540
-70	236	1769767829064424301	CMakeFiles/ImageCreator.dir/src/memory_map.cpp.o	6761873efcc219e0
-1	69	1769767828902505312	CMakeFiles/ImageCreator.dir/src/crc32.cpp.o	7783e93eb950ed8b
+7364	7600	1769955878488012974	ImageCreator	4e2b61367db2ebf2
+17	7363	1769955878125012966	CMakeFiles/ImageCreator.dir/src/main.cpp.o	406daa8f0043c920
+7	1868	1769955872738012861	CMakeFiles/ImageCreator.dir/src/fat.cpp.o	ccc726b047ecb191
+16	1521	1769955872274012851	CMakeFiles/ImageCreator.dir/src/gpt.cpp.o	65df1cb630cb4540
+85	671	1769955871561012837	CMakeFiles/ImageCreator.dir/src/memory_map.cpp.o	6761873efcc219e0
+5	83	1769955870965012826	CMakeFiles/ImageCreator.dir/src/crc32.cpp.o	7783e93eb950ed8b

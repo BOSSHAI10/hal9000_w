@@ -48,7 +48,7 @@ Running HAL9000 Debug version 1.8 built on Fri Jan 30 10:07:30 2026
 [system.c][183]InitIdtHandlers succeeded
 [mmu.c][376]ExEventInit succeeded
 [mmu.c][387]_MmuRetrieveKernelInfoAndValidate succeeded
-[mmu.c][396]Will change to a temporary stack at 0xFFFF800001114000
+[mmu.c][396]Will change to a temporary stack at 0xFFFF80000111A000
 Physical memory size: 0xFFA47000
 Highest Physical address present: 0x180000000
 Highest Physical address available: 0x180000000
@@ -250,8 +250,8 @@ Bus: 0 -> 255
 [system.c][231]AcpiInterfaceInit suceeded
 [lapic_system.c][79]_LapicInstallInterruptRoutines succeeeded
 [lapic_system.c][89]_LapicSystemMapRegister succeeded
-[lapic_system.c][92]CPU frequency: 0x2400C110
-[lapic_system.c][95]Divided bus frequency: 0x900304
+[lapic_system.c][92]CPU frequency: 0x513DFAD0
+[lapic_system.c][95]Divided bus frequency: 0x144F7EB
 [system.c][239]LapicSystemInit suceeded
 [smp.c][220]SMP interrupt routines successfully registered!
 [smp.c][228]Reached end of CPU list
@@ -265,6 +265,7 @@ EFER is 0xD01
 [CPU:00][lapic_system.c][132]LAPIC registers configured
 [CPU:00][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [CPU:00][lapic_system.c][136]LAPIC timer configured
+[CPU:00][thread.c][210]_ThreadInit succeeded
 [CPU:00][smp.c][625]Number of active CPUs: 1/8
 [system.c][265]CpuMuAllocAndInitCpu succeeded
 [pci_system.c][659]Will map 268435456 bytes at PA 0xE0000000
@@ -289,7 +290,7 @@ Irq 0x8 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 Irq 0x8 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 [iomu.c][418]RTC Isr successfully installed!
 [iomu.c][323]_IomuSetupRtc succeeded
-[iomu.c][325]TSC frequency: 0x1682F36E0
+[iomu.c][325]TSC frequency: 0x10D645B00
 [iomu.c][441]Initial PIT timer count is 0xBA6F
 Irq 0x2 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 [WARNING][ioapic_system.c][378]Interrupt 0x2 is not registered in IO Apic 0x0
@@ -311,42 +312,46 @@ APIC ID: 0x05, logical ID: 0x20
 APIC ID: 0x06, logical ID: 0x40
 APIC ID: 0x07, logical ID: 0x80
 [smp.c][283]Reached end of CPU list
-[ap_tramp.c][160]CR3: 0x1144000
+[ap_tramp.c][160]CR3: 0x114A000
 [ap_tramp.c][161]Low GDT base: 0x21C3
 [ap_tramp.c][162]Low GDT limit: 0x7F
-[ap_tramp.c][163]High GDT base: 0xFFFF8000010F9C80
+[ap_tramp.c][163]High GDT base: 0xFFFF8000010FF6D0
 [ap_tramp.c][164]High GDT limit: 0xFFF
-[ap_tramp.c][199]Cpu at: 0xFFFF8501800053B0
+[ap_tramp.c][199]Cpu at: 0xFFFF8501800053C0
 [ap_tramp.c][200]Setup AP config for apic id 0x1
 [ap_tramp.c][201]Physical Stack PA: 0x4000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF850193651FA0
-[ap_tramp.c][199]Cpu at: 0xFFFF850180005D50
+[ap_tramp.c][199]Cpu at: 0xFFFF850180005D60
 [ap_tramp.c][200]Setup AP config for apic id 0x2
 [ap_tramp.c][201]Physical Stack PA: 0x5000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF85019367EFA0
-[ap_tramp.c][199]Cpu at: 0xFFFF8501800066F0
+[ap_tramp.c][199]Cpu at: 0xFFFF850180006700
 [ap_tramp.c][200]Setup AP config for apic id 0x3
 [ap_tramp.c][201]Physical Stack PA: 0x6000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF8501936ABFA0
-[ap_tramp.c][199]Cpu at: 0xFFFF850180007090
+[ap_tramp.c][199]Cpu at: 0xFFFF8501800070A0
 [ap_tramp.c][200]Setup AP config for apic id 0x4
 [ap_tramp.c][201]Physical Stack PA: 0x7000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF8501936D8FA0
-[ap_tramp.c][199]Cpu at: 0xFFFF850180007A30
+[ap_tramp.c][199]Cpu at: 0xFFFF850180007A40
 [ap_tramp.c][200]Setup AP config for apic id 0x5
 [ap_tramp.c][201]Physical Stack PA: 0x8000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF850193705FA0
-[ap_tramp.c][199]Cpu at: 0xFFFF8501800083D0
+[ap_tramp.c][199]Cpu at: 0xFFFF8501800083E0
 [ap_tramp.c][200]Setup AP config for apic id 0x6
 [ap_tramp.c][201]Physical Stack PA: 0x9000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF850193732FA0
-[ap_tramp.c][199]Cpu at: 0xFFFF850180008D70
+[ap_tramp.c][199]Cpu at: 0xFFFF850180008D80
 [ap_tramp.c][200]Setup AP config for apic id 0x7
 [ap_tramp.c][201]Physical Stack PA: 0xA000
 [ap_tramp.c][202]Virtual Stack VA: 0xFFFF85019375FFA0
 [system.c][294]SmpSetupLowerMemory succeded
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
 [system.c][303]Successfully intiialized system process!
+[CPU:00][thread.c][257]EvtInitialize succeeded
+[CPU:00][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:00][thread.c][279]About to enable interrupts
+[CPU:00][thread.c][284]Interrupts enabled :)
 [system.c][312]ThreadSystemInitIdleForCurrentCPU succeeded
 Successfully initialized ACPI subsystem
 Successfully loaded ACPI tables
@@ -358,72 +363,107 @@ Number of PRT entries is 128
 [system.c][320]AcpiInterfaceLateInit succeeded
 [smp.c][357]Will signal APs
 [smp.c][359]APs were signaled
-[CPU:03][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800066F0
-[CPU:01][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800053B0
-[CPU:02][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180005D50
+[CPU:05][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180007A40
+[CPU:03][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180006700
 [cpumu.c][61]CR4 is 0x20
-[CPU:05][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180007A30
+[cpumu.c][61]CR4 is 0x20
+EFER is 0xD01
+EFER is 0xD01
+[CPU:04][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800070A0
+[CPU:07][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180008D80
+[cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
 [cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
-[CPU:07][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180008D70
+[CPU:02][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180005D60
 [lapic_system.c][129]Apic is SW enabled
+[CPU:01][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800053C0
 [cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
-[cpumu.c][61]CR4 is 0x20
-EFER is 0xD01
+[lapic_system.c][129]Apic is SW enabled
+[CPU:02][lapic_system.c][132]LAPIC registers configured
 [lapic_system.c][129]Apic is SW enabled
 [CPU:05][lapic_system.c][132]LAPIC registers configured
-[lapic_system.c][129]Apic is SW enabled
-[CPU:01][lapic_system.c][132]LAPIC registers configured
-[CPU:06][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800083D0
 [CPU:05][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:04][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180007090
-[cpumu.c][61]CR4 is 0x20
-EFER is 0xD01
-[lapic_system.c][129]Apic is SW enabled
-[CPU:03][lapic_system.c][132]LAPIC registers configured
-[CPU:03][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:03][lapic_system.c][136]LAPIC timer configured
-[cpumu.c][61]CR4 is 0x20
-EFER is 0xD01
-[CPU:05][lapic_system.c][136]LAPIC timer configured
-[CPU:05][smp.c][625]Number of active CPUs: 3/8
-[CPU:01][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:03][smp.c][625]Number of active CPUs: 2/8
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[lapic_system.c][129]Apic is SW enabled
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[cpumu.c][61]CR4 is 0x20
-[CPU:02][lapic_system.c][132]LAPIC registers configured
-[CPU:01][lapic_system.c][136]LAPIC timer configured
-[CPU:04][lapic_system.c][132]LAPIC registers configured
-[CPU:04][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:01][smp.c][625]Number of active CPUs: 4/8
 [CPU:02][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:02][lapic_system.c][136]LAPIC timer configured
+[CPU:06][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800083E0
+[cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
-[lapic_system.c][129]Apic is SW enabled
-[lapic_system.c][129]Apic is SW enabled
-[CPU:04][lapic_system.c][136]LAPIC timer configured
-[CPU:06][lapic_system.c][132]LAPIC registers configured
 [CPU:07][lapic_system.c][132]LAPIC registers configured
 [CPU:07][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [CPU:07][lapic_system.c][136]LAPIC timer configured
-[CPU:04][smp.c][625]Number of active CPUs: 6/8
+[lapic_system.c][129]Apic is SW enabled
+[CPU:02][lapic_system.c][136]LAPIC timer configured
+[cpumu.c][61]CR4 is 0x20
+EFER is 0xD01
+[lapic_system.c][129]Apic is SW enabled
+[lapic_system.c][129]Apic is SW enabled
+[CPU:07][thread.c][210]_ThreadInit succeeded
+[CPU:02][thread.c][210]_ThreadInit succeeded
+[CPU:02][smp.c][625]Number of active CPUs: 3/8
+[CPU:07][smp.c][625]Number of active CPUs: 2/8
+[CPU:01][lapic_system.c][132]LAPIC registers configured
+[CPU:01][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:02][smp.c][625]Number of active CPUs: 5/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[lapic_system.c][129]Apic is SW enabled
+[CPU:04][lapic_system.c][132]LAPIC registers configured
+[CPU:02][thread.c][257]EvtInitialize succeeded
+[CPU:04][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:04][lapic_system.c][136]LAPIC timer configured
+[CPU:07][thread.c][257]EvtInitialize succeeded
+[CPU:03][lapic_system.c][132]LAPIC registers configured
+[CPU:03][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:05][lapic_system.c][136]LAPIC timer configured
+[CPU:02][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:06][lapic_system.c][132]LAPIC registers configured
 [CPU:06][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:03][lapic_system.c][136]LAPIC timer configured
+[CPU:01][lapic_system.c][136]LAPIC timer configured
+[CPU:04][thread.c][210]_ThreadInit succeeded
+[CPU:02][thread.c][279]About to enable interrupts
+[CPU:05][thread.c][210]_ThreadInit succeeded
+[CPU:02][thread.c][284]Interrupts enabled :)
+[CPU:07][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:07][thread.c][279]About to enable interrupts
+[CPU:07][thread.c][284]Interrupts enabled :)
+[CPU:03][thread.c][210]_ThreadInit succeeded
+[CPU:05][smp.c][625]Number of active CPUs: 5/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:01][thread.c][210]_ThreadInit succeeded
+[CPU:01][smp.c][625]Number of active CPUs: 7/8
+[CPU:04][smp.c][625]Number of active CPUs: 4/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:01][thread.c][257]EvtInitialize succeeded
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:04][thread.c][257]EvtInitialize succeeded
+[CPU:05][thread.c][257]EvtInitialize succeeded
+[CPU:04][thread.c][274]ThreadCreate for IDLE thread succeeded
 [CPU:06][lapic_system.c][136]LAPIC timer configured
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:07][smp.c][625]Number of active CPUs: 7/8
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:05][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:05][thread.c][279]About to enable interrupts
+[CPU:05][thread.c][284]Interrupts enabled :)
+[CPU:01][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:01][thread.c][279]About to enable interrupts
+[CPU:01][thread.c][284]Interrupts enabled :)
+[CPU:04][thread.c][279]About to enable interrupts
+[CPU:04][thread.c][284]Interrupts enabled :)
+[CPU:06][thread.c][210]_ThreadInit succeeded
+[CPU:03][smp.c][625]Number of active CPUs: 6/8
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
 [CPU:06][smp.c][625]Number of active CPUs: 8/8
+[CPU:03][thread.c][257]EvtInitialize succeeded
 [CPU:06][smp.c][629]All CPUs woke up, will signal BSP
+[CPU:03][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:03][thread.c][279]About to enable interrupts
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:03][thread.c][284]Interrupts enabled :)
 [smp.c][364]Aps have waken UP
+[CPU:06][thread.c][257]EvtInitialize succeeded
 [system.c][323]SmpWakeupAps completed
+[CPU:06][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:06][thread.c][279]About to enable interrupts
+[CPU:06][thread.c][284]Interrupts enabled :)
 [iomu.c][361]CPU interrupt time 5000/40000 us
 [ioapic_system.c][684]Reached end of PRT list
 [ioapic_system.c][684]Reached end of PRT list
@@ -432,6 +472,7 @@ EFER is 0xD01
 [system.c][332]IomuInitSystemAfterApWakeup succeeded
 [system.c][337]SmpCleanupLowerMemory completed
 [system.c][342]MmuDiscardIdentityMappings completed
+Thread [ID=128] este al 1-lea fir creat de firul [ID=0] pe CPU [ID=3]
 [system.c][351]MmuInitThreadingSystem succeded
 [ata.c][49]Found 1 IDE devices
 Irq 0xE is handled by IO APIC 0x0 which handles [0x0, 0x17]
@@ -456,11 +497,11 @@ Will now call _DiskRetrievePartitionsFromGptDisk to complete pDiskInformation st
 [disk.c][220]Disk read with sector index 0x82, sector count 0x1
 [disk.c][169]_DiskRetrievePartitionsFromDisk succceded
 Found 1 disks
-[volume.c][75]pDiskLayout has address: 0xFFFF8501800C5AC0
+[volume.c][75]pDiskLayout has address: 0xFFFF8501800C5BD0
 [0][0] Volume successfully initialized
 [0][1] Volume successfully initialized
 [0][2] Volume successfully initialized
-[volume.c][137]Calling HeapFreePoolWithTag for pDiskLayout: 0xFFFF8501800C5AC0
+[volume.c][137]Calling HeapFreePoolWithTag for pDiskLayout: 0xFFFF8501800C5BD0
 [WARNING][fat32.c][117]Partition type 0x82 not supported
 [WARNING][swapfs.c][108]Partition type 0xC not supported
 [WARNING][swapfs.c][108]Partition type 0xC not supported
@@ -484,117 +525,117 @@ Device extension size: 0x0
 Attached to device: 0x0
 
 
-Driver at 0xFFFF8501800C52D0
+Driver at 0xFFFF8501800C53E0
 Name: ata.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF8000010846A0
-DispatchFunction[3] = 0xFFFF8000010846A0
+DispatchFunction[2] = 0xFFFF800001087980
+DispatchFunction[3] = 0xFFFF800001087980
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001084EC0
+DispatchFunction[6] = 0xFFFF8000010881A0
 Device number: 1
 Device list:
-Device at 0xFFFF8501800C53D0
+Device at 0xFFFF8501800C54E0
 Device type: Harddisk Controller
 Stack size: 1
 Device extension size: 0xA0
 Attached to device: 0x0
 
 
-Driver at 0xFFFF8501800C55E0
+Driver at 0xFFFF8501800C56F0
 Name: disk.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF800001082930
-DispatchFunction[3] = 0xFFFF800001082930
+DispatchFunction[2] = 0xFFFF800001085C10
+DispatchFunction[3] = 0xFFFF800001085C10
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001082C90
+DispatchFunction[6] = 0xFFFF800001085F70
 Device number: 1
 Device list:
-Device at 0xFFFF8501800C5760
+Device at 0xFFFF8501800C5870
 Device type: Disk
 Stack size: 2
 Device extension size: 0x18
-Attached to device: 0xFFFF8501800C53D0
+Attached to device: 0xFFFF8501800C54E0
 
 
-Driver at 0xFFFF8501800C5910
+Driver at 0xFFFF8501800C5A20
 Name: vol.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF800001083950
-DispatchFunction[3] = 0xFFFF800001083950
+DispatchFunction[2] = 0xFFFF800001086C30
+DispatchFunction[3] = 0xFFFF800001086C30
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001083E10
+DispatchFunction[6] = 0xFFFF8000010870F0
 Device number: 3
 Device list:
-Device at 0xFFFF8501800C5BF0
+Device at 0xFFFF8501800C5D00
 Device type: Volume
 Stack size: 3
 Device extension size: 0x20
-Attached to device: 0xFFFF8501800C5760
+Attached to device: 0xFFFF8501800C5870
 
-Device at 0xFFFF8501800C5D80
+Device at 0xFFFF8501800C5E90
 Device type: Volume
 Stack size: 3
 Device extension size: 0x20
-Attached to device: 0xFFFF8501800C5760
+Attached to device: 0xFFFF8501800C5870
 
-Device at 0xFFFF8501800C5F10
+Device at 0xFFFF8501800C6020
 Device type: Volume
 Stack size: 3
 Device extension size: 0x20
-Attached to device: 0xFFFF8501800C5760
+Attached to device: 0xFFFF8501800C5870
 
 
-Driver at 0xFFFF8501800C60A0
+Driver at 0xFFFF8501800C61B0
 Name: fat.sys
 Dispatch functions:
-DispatchFunction[0] = 0xFFFF800001071690
-DispatchFunction[1] = 0xFFFF800001071D00
-DispatchFunction[2] = 0xFFFF800001072050
-DispatchFunction[3] = 0xFFFF800001072050
-DispatchFunction[4] = 0xFFFF8000010726D0
-DispatchFunction[5] = 0xFFFF800001072AA0
+DispatchFunction[0] = 0xFFFF800001074970
+DispatchFunction[1] = 0xFFFF800001074FE0
+DispatchFunction[2] = 0xFFFF800001075330
+DispatchFunction[3] = 0xFFFF800001075330
+DispatchFunction[4] = 0xFFFF8000010759B0
+DispatchFunction[5] = 0xFFFF800001075D80
 DispatchFunction[6] = 0x0
 Device number: 2
 Device list:
-Device at 0xFFFF8501800C6290
+Device at 0xFFFF8501800C63A0
 Device type: File System
 Stack size: 4
 Device extension size: 0x30
-Attached to device: 0xFFFF8501800C5BF0
+Attached to device: 0xFFFF8501800C5D00
 
-Device at 0xFFFF8501800C64C0
+Device at 0xFFFF8501800C65D0
 Device type: File System
 Stack size: 4
 Device extension size: 0x30
-Attached to device: 0xFFFF8501800C5D80
+Attached to device: 0xFFFF8501800C5E90
 
 
-Driver at 0xFFFF8501800C6610
+Driver at 0xFFFF8501800C6720
 Name: swapfs.sys
 Dispatch functions:
-DispatchFunction[0] = 0xFFFF80000107CE60
-DispatchFunction[1] = 0xFFFF80000107D1E0
-DispatchFunction[2] = 0xFFFF80000107D3D0
-DispatchFunction[3] = 0xFFFF80000107D7E0
+DispatchFunction[0] = 0xFFFF800001080140
+DispatchFunction[1] = 0xFFFF8000010804C0
+DispatchFunction[2] = 0xFFFF8000010806B0
+DispatchFunction[3] = 0xFFFF800001080AC0
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
 DispatchFunction[6] = 0x0
 Device number: 1
 Device list:
-Device at 0xFFFF8501800C6800
+Device at 0xFFFF8501800C6910
 Device type: File System
 Stack size: 4
 Device extension size: 0x10
-Attached to device: 0xFFFF8501800C5F10
+Attached to device: 0xFFFF8501800C6020
 
 [iomu.c][531]Drivers successfully initialized!
 Found system partition at [D:\]
@@ -603,30 +644,216 @@ Found system partition at [D:\]
 [system.c][361]IOMU late initialization successfully completed
 Year: 2026
 [Entry64.c][73]InitSystem executed successfully
-Current line is [/run Fibonacci] of length 0xE
-[ERROR][TEST] STARTING: Fibonacci
-[ERROR][CPU:05]Sending IPI to other processors
-[ERROR][CPU:05]Kernel panic!
-[ERROR][CPU:05]Thread: [Fib2]
-[ERROR][CPU:05][ASSERT][list.c][63]Condition: (_ValidateListEntry(Entry)) failed
+Current line is [/vol] of length 0x4
+C:\   |   FAT-LBA(0x0C)|      YES|      YES|           18600|         3FF0000|
+D:\   |   FAT-LBA(0x0C)|      YES|       NO|         4008800|         8000000|
+E:\   | LINUX-SWP(0x82)|      YES|       NO|         C008A00|         8000000|
+Thread [ID=136] este al 2-lea fir creat de firul [ID=0] pe CPU [ID=0]
 
-[ERROR][CPU:06]Kernel panic!
-[ERROR][CPU:06]Thread: [idle-06]
-[ERROR][CPU:06]Received ASSERT IPI
+======================================
+--- CALCUL FIBONACCI RECURSIV N=8 ---
+======================================
+Thread [ID=144] este al 1-lea fir creat de firul [ID=136] pe CPU [ID=4]
+Thread [ID=152] este al 2-lea fir creat de firul [ID=136] pe CPU [ID=4]
+Thread [ID=160] este al 1-lea fir creat de firul [ID=144] pe CPU [ID=4]
+Thread [ID=168] este al 2-lea fir creat de firul [ID=144] pe CPU [ID=4]
+Thread [ID=176] este al 1-lea fir creat de firul [ID=152] pe CPU [ID=0]
+Thread [ID=192] este al 1-lea fir creat de firul [ID=168] pe CPU [ID=4]
+Thread [ID=184] este al 1-lea fir creat de firul [ID=160] pe CPU [ID=2]
+Thread [ID=224] este al 1-lea fir creat de firul [ID=192] pe CPU [ID=1]
+Thread [ID=232] este al 2-lea fir creat de firul [ID=160] pe CPU [ID=2]
+Thread [ID=240] este al 1-lea fir creat de firul [ID=184] pe CPU [ID=3]
+Thread [ID=208] este al 1-lea fir creat de firul [ID=176] pe CPU [ID=4]
+Thread [ID=256] este al 1-lea fir creat de firul [ID=224] pe CPU [ID=5]
+Thread [ID=264] este al 1-lea fir creat de firul [ID=232] pe CPU [ID=2]
+Thread [ID=280] este al 1-lea fir creat de firul [ID=240] pe CPU [ID=6]
+Thread [ID=304] este al 2-lea fir creat de firul [ID=224] pe CPU [ID=2]
+Thread [ID=296] este al 1-lea fir creat de firul [ID=208] pe CPU [ID=5]
+Thread [ID=320] este al 2-lea fir creat de firul [ID=240] pe CPU [ID=2]
+Thread [ID=216] este al 2-lea fir creat de firul [ID=168] pe CPU [ID=7]
+Thread [ID=272] este al 2-lea fir creat de firul [ID=184] pe CPU [ID=3]
+Thread [ID=200] este al 2-lea fir creat de firul [ID=152] pe CPU [ID=0]
+Thread [ID=288] este al 2-lea fir creat de firul [ID=176] pe CPU [ID=4]
+Thread [ID=312] este al 2-lea fir creat de firul [ID=232] pe CPU [ID=6]
+Thread [ID=304] creat pe CPU [ID=2] se termina pe CPU [ID=0], parintele [ID=224] mai are 1 copii
+Thread [ID=328] este al 1-lea fir creat de firul [ID=264] pe CPU [ID=5]
+Thread [ID=368] este al 1-lea fir creat de firul [ID=320] pe CPU [ID=6]
+Thread [ID=360] este al 1-lea fir creat de firul [ID=296] pe CPU [ID=4]
+Thread [ID=376] este al 1-lea fir creat de firul [ID=216] pe CPU [ID=0]
+Thread [ID=336] este al 1-lea fir creat de firul [ID=256] pe CPU [ID=2]
+Thread [ID=384] este al 1-lea fir creat de firul [ID=272] pe CPU [ID=5]
+Thread [ID=344] este al 1-lea fir creat de firul [ID=280] pe CPU [ID=7]
+Thread [ID=352] este al 2-lea fir creat de firul [ID=208] pe CPU [ID=3]
+Thread [ID=392] este al 1-lea fir creat de firul [ID=288] pe CPU [ID=4]
+Thread [ID=408] este al 1-lea fir creat de firul [ID=312] pe CPU [ID=2]
+Firului de executie [ID=304] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=440] este al 2-lea fir creat de firul [ID=256] pe CPU [ID=2]
+Thread [ID=400] este al 2-lea fir creat de firul [ID=320] pe CPU [ID=0]
+Thread [ID=368] creat pe CPU [ID=6] se termina pe CPU [ID=4], parintele [ID=320] mai are 1 copii
+Thread [ID=248] este al 2-lea fir creat de firul [ID=192] pe CPU [ID=1]
+Thread [ID=472] este al 2-lea fir creat de firul [ID=296] pe CPU [ID=4]
+Thread [ID=464] este al 1-lea fir creat de firul [ID=360] pe CPU [ID=0]
+Thread [ID=480] este al 1-lea fir creat de firul [ID=376] pe CPU [ID=1]
+Thread [ID=424] este al 2-lea fir creat de firul [ID=216] pe CPU [ID=7]
+Thread [ID=488] este al 1-lea fir creat de firul [ID=328] pe CPU [ID=4]
+Thread [ID=432] este al 2-lea fir creat de firul [ID=264] pe CPU [ID=3]
+Thread [ID=416] este al 1-lea fir creat de firul [ID=200] pe CPU [ID=5]
+Thread [ID=496] este al 2-lea fir creat de firul [ID=288] pe CPU [ID=0]
+Thread [ID=520] este al 1-lea fir creat de firul [ID=344] pe CPU [ID=5]
+Thread [ID=440] creat pe CPU [ID=2] se termina pe CPU [ID=3], parintele [ID=256] mai are 0 copii
+Thread [ID=336] creat pe CPU [ID=2] se termina pe CPU [ID=7], parintele [ID=256] mai are 1 copii
+Thread [ID=504] este al 2-lea fir creat de firul [ID=312] pe CPU [ID=1]
+Firului de executie [ID=368] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=512] este al 1-lea fir creat de firul [ID=384] pe CPU [ID=4]
+Thread [ID=536] este al 2-lea fir creat de firul [ID=360] pe CPU [ID=3]
+Thread [ID=528] este al 1-lea fir creat de firul [ID=352] pe CPU [ID=5]
+Thread [ID=544] este al 1-lea fir creat de firul [ID=392] pe CPU [ID=7]
+Thread [ID=568] este al 2-lea fir creat de firul [ID=200] pe CPU [ID=3]
+Thread [ID=408] creat pe CPU [ID=2] se termina pe CPU [ID=0], parintele [ID=312] mai are 1 copii
+Thread [ID=560] este al 2-lea fir creat de firul [ID=328] pe CPU [ID=4]
+Firului de executie [ID=440] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=584] este al 1-lea fir creat de firul [ID=248] pe CPU [ID=3]
+Thread [ID=456] este al 2-lea fir creat de firul [ID=280] pe CPU [ID=2]
+Thread [ID=448] este al 2-lea fir creat de firul [ID=272] pe CPU [ID=6]
+Thread [ID=552] este al 2-lea fir creat de firul [ID=376] pe CPU [ID=1]
+Thread [ID=480] creat pe CPU [ID=1] se termina pe CPU [ID=2], parintele [ID=376] mai are 1 copii
+Thread [ID=424] creat pe CPU [ID=7] se termina pe CPU [ID=6], parintele [ID=216] mai are 1 copii
+Thread [ID=472] creat pe CPU [ID=4] se termina pe CPU [ID=0], parintele [ID=296] mai are 1 copii
+Thread [ID=488] creat pe CPU [ID=4] se termina pe CPU [ID=1], parintele [ID=328] mai are 1 copii
+Thread [ID=496] creat pe CPU [ID=0] se termina pe CPU [ID=1], parintele [ID=288] mai are 1 copii
+Thread [ID=576] este al 2-lea fir creat de firul [ID=344] pe CPU [ID=7]
+Thread [ID=464] creat pe CPU [ID=0] se termina pe CPU [ID=4], parintele [ID=360] mai are 1 copii
+Firului de executie [ID=496] i-au fost alocate 1 cuante pana la finalizare
+Thread [ID=600] este al 2-lea fir creat de firul [ID=352] pe CPU [ID=0]
+Thread [ID=520] creat pe CPU [ID=5] se termina pe CPU [ID=4], parintele [ID=344] mai are 1 copii
+Firului de executie [ID=408] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=608] este al 2-lea fir creat de firul [ID=392] pe CPU [ID=7]
+Thread [ID=400] creat pe CPU [ID=0] se termina pe CPU [ID=5], parintele [ID=320] mai are 0 copii
+Firului de executie [ID=480] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=336] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=624] este al 2-lea fir creat de firul [ID=384] pe CPU [ID=7]
+Thread [ID=592] este al 1-lea fir creat de firul [ID=416] pe CPU [ID=6]
+Firului de executie [ID=424] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=528] creat pe CPU [ID=5] se termina pe CPU [ID=6], parintele [ID=352] mai are 1 copii
+Thread [ID=432] creat pe CPU [ID=3] se termina pe CPU [ID=2], parintele [ID=264] mai are 1 copii
+Firului de executie [ID=464] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=472] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=616] este al 2-lea fir creat de firul [ID=248] pe CPU [ID=0]
+Thread [ID=560] creat pe CPU [ID=4] se termina pe CPU [ID=7], parintele [ID=328] mai are 0 copii
+Thread [ID=536] creat pe CPU [ID=3] se termina pe CPU [ID=5], parintele [ID=360] mai are 0 copii
+Thread [ID=504] creat pe CPU [ID=1] se termina pe CPU [ID=4], parintele [ID=312] mai are 0 copii
+Thread [ID=448] creat pe CPU [ID=6] se termina pe CPU [ID=4], parintele [ID=272] mai are 1 copii
+Thread [ID=456] creat pe CPU [ID=2] se termina pe CPU [ID=5], parintele [ID=280] mai are 1 copii
+Firului de executie [ID=488] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=544] creat pe CPU [ID=7] se termina pe CPU [ID=6], parintele [ID=392] mai are 1 copii
+Firului de executie [ID=528] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=632] este al 1-lea fir creat de firul [ID=568] pe CPU [ID=2]
+Thread [ID=584] creat pe CPU [ID=3] se termina pe CPU [ID=0], parintele [ID=248] mai are 1 copii
+Firului de executie [ID=432] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=600] creat pe CPU [ID=0] se termina pe CPU [ID=0], parintele [ID=352] mai are 0 copii
+Firului de executie [ID=560] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=504] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=552] creat pe CPU [ID=1] se termina pe CPU [ID=5], parintele [ID=376] mai are 0 copii
+Firului de executie [ID=456] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=536] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=520] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=640] este al 2-lea fir creat de firul [ID=416] pe CPU [ID=3]
+Thread [ID=576] creat pe CPU [ID=7] se termina pe CPU [ID=6], parintele [ID=344] mai are 0 copii
+Firului de executie [ID=544] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=400] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=608] creat pe CPU [ID=7] se termina pe CPU [ID=2], parintele [ID=392] mai are 0 copii
+Thread [ID=624] creat pe CPU [ID=7] se termina pe CPU [ID=0], parintele [ID=384] mai are 0 copii
+Thread [ID=512] creat pe CPU [ID=4] se termina pe CPU [ID=1], parintele [ID=384] mai are 0 copii
+Thread [ID=312] creat pe CPU [ID=6] se termina pe CPU [ID=2], parintele [ID=232] mai are 1 copii
+Thread [ID=256] creat pe CPU [ID=5] se termina pe CPU [ID=5], parintele [ID=224] mai are 0 copii
+Thread [ID=328] creat pe CPU [ID=5] se termina pe CPU [ID=2], parintele [ID=264] mai are 0 copii
+Thread [ID=616] creat pe CPU [ID=0] se termina pe CPU [ID=3], parintele [ID=248] mai are 0 copii
+Firului de executie [ID=552] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=632] creat pe CPU [ID=2] se termina pe CPU [ID=2], parintele [ID=568] mai are 0 copii
+Firului de executie [ID=600] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=656] este al 2-lea fir creat de firul [ID=568] pe CPU [ID=3]
+Firului de executie [ID=448] i-au fost alocate 3 cuante pana la finalizare
+Firului de executie [ID=256] i-au fost alocate 5 cuante pana la finalizare
+Firului de executie [ID=576] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=608] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=312] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=328] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=584] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=640] creat pe CPU [ID=3] se termina pe CPU [ID=5], parintele [ID=416] mai are 1 copii
+Thread [ID=320] creat pe CPU [ID=2] se termina pe CPU [ID=1], parintele [ID=240] mai are 1 copii
+Thread [ID=224] creat pe CPU [ID=1] se termina pe CPU [ID=5], parintele [ID=192] mai are 1 copii
+Firului de executie [ID=624] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=360] creat pe CPU [ID=4] se termina pe CPU [ID=0], parintele [ID=296] mai are 0 copii
+Firului de executie [ID=640] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=376] creat pe CPU [ID=0] se termina pe CPU [ID=1], parintele [ID=216] mai are 0 copii
+Firului de executie [ID=512] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=352] creat pe CPU [ID=3] se termina pe CPU [ID=0], parintele [ID=208] mai are 1 copii
+Thread [ID=648] este al 1-lea fir creat de firul [ID=592] pe CPU [ID=7]
+Firului de executie [ID=224] i-au fost alocate 5 cuante pana la finalizare
+Firului de executie [ID=616] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=656] creat pe CPU [ID=3] se termina pe CPU [ID=2], parintele [ID=568] mai are 0 copii
+Firului de executie [ID=360] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=352] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=632] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=320] i-au fost alocate 6 cuante pana la finalizare
+Thread [ID=648] creat pe CPU [ID=7] se termina pe CPU [ID=1], parintele [ID=592] mai are 1 copii
+Firului de executie [ID=648] i-au fost alocate 1 cuante pana la finalizare
+Firului de executie [ID=376] i-au fost alocate 7 cuante pana la finalizare
+Thread [ID=344] creat pe CPU [ID=7] se termina pe CPU [ID=4], parintele [ID=280] mai are 0 copii
+Thread [ID=384] creat pe CPU [ID=5] se termina pe CPU [ID=6], parintele [ID=272] mai are 0 copii
+Thread [ID=296] creat pe CPU [ID=5] se termina pe CPU [ID=4], parintele [ID=208] mai are 0 copii
+Firului de executie [ID=656] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=664] este al 2-lea fir creat de firul [ID=592] pe CPU [ID=7]
+Thread [ID=392] creat pe CPU [ID=4] se termina pe CPU [ID=5], parintele [ID=288] mai are 0 copii
+Thread [ID=264] creat pe CPU [ID=2] se termina pe CPU [ID=0], parintele [ID=232] mai are 0 copii
+Thread [ID=216] creat pe CPU [ID=7] se termina pe CPU [ID=6], parintele [ID=168] mai are 1 copii
+Firului de executie [ID=392] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=344] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=296] i-au fost alocate 7 cuante pana la finalizare
+Thread [ID=248] creat pe CPU [ID=1] se termina pe CPU [ID=1], parintele [ID=192] mai are 0 copii
+Thread [ID=664] creat pe CPU [ID=7] se termina pe CPU [ID=5], parintele [ID=592] mai are 0 copii
+Thread [ID=288] creat pe CPU [ID=4] se termina pe CPU [ID=3], parintele [ID=176] mai are 1 copii
+Firului de executie [ID=216] i-au fost alocate 5 cuante pana la finalizare
+Thread [ID=280] creat pe CPU [ID=6] se termina pe CPU [ID=2], parintele [ID=240] mai are 0 copii
+Thread [ID=568] creat pe CPU [ID=3] se termina pe CPU [ID=7], parintele [ID=200] mai are 1 copii
+Firului de executie [ID=280] i-au fost alocate 5 cuante pana la finalizare
+Firului de executie [ID=264] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=568] i-au fost alocate 7 cuante pana la finalizare
+Firului de executie [ID=248] i-au fost alocate 6 cuante pana la finalizare
+Thread [ID=232] creat pe CPU [ID=2] se termina pe CPU [ID=2], parintele [ID=160] mai are 1 copii
+Thread [ID=240] creat pe CPU [ID=3] se termina pe CPU [ID=6], parintele [ID=184] mai are 1 copii
+Firului de executie [ID=240] i-au fost alocate 5 cuante pana la finalizare
+Firului de executie [ID=664] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=384] i-au fost alocate 6 cuante pana la finalizare
+Firului de executie [ID=232] i-au fost alocate 5 cuante pana la finalizare
+Thread [ID=208] creat pe CPU [ID=4] se termina pe CPU [ID=1], parintele [ID=176] mai are 0 copii
+Firului de executie [ID=288] i-au fost alocate 5 cuante pana la finalizare
+Thread [ID=592] creat pe CPU [ID=6] se termina pe CPU [ID=3], parintele [ID=416] mai are 0 copii
+Firului de executie [ID=592] i-au fost alocate 4 cuante pana la finalizare
+Thread [ID=272] creat pe CPU [ID=3] se termina pe CPU [ID=4], parintele [ID=184] mai are 0 copii
+Firului de executie [ID=208] i-au fost alocate 4 cuante pana la finalizare
+Thread [ID=416] creat pe CPU [ID=5] se termina pe CPU [ID=3], parintele [ID=200] mai are 0 copii
+Thread [ID=176] creat pe CPU [ID=0] se termina pe CPU [ID=1], parintele [ID=152] mai are 1 copii
+Firului de executie [ID=176] i-au fost alocate 3 cuante pana la finalizare
+Thread [ID=192] creat pe CPU [ID=4] se termina pe CPU [ID=5], parintele [ID=168] mai are 0 copii
+Firului de executie [ID=272] i-au fost alocate 4 cuante pana la finalizare
+Firului de executie [ID=192] i-au fost alocate 4 cuante pana la finalizare
+Firului de executie [ID=416] i-au fost alocate 4 cuante pana la finalizare
+Thread [ID=184] creat pe CPU [ID=2] se termina pe CPU [ID=4], parintele [ID=160] mai are 0 copii
+Thread [ID=168] creat pe CPU [ID=4] se termina pe CPU [ID=5], parintele [ID=144] mai are 1 copii
+Thread [ID=200] creat pe CPU [ID=0] se termina pe CPU [ID=3], parintele [ID=152] mai are 0 copii
+Firului de executie [ID=168] i-au fost alocate 4 cuante pana la finalizare
+Firului de executie [ID=184] i-au fost alocate 4 cuante pana la finalizare
+Thread [ID=160] creat pe CPU [ID=4] se termina pe CPU [ID=4], parintele [ID=144] mai are 0 copii
+Firului de executie [ID=200] i-au fost alocate 5 cuante pana la finalizare
+Firului de executie [ID=160] i-au fost alocate 2 cuante pana la finalizare
+Thread [ID=152] creat pe CPU [ID=4] se termina pe CPU [ID=3], parintele [ID=136] mai are 1 copii
+Thread [ID=144] creat pe CPU [ID=4] se termina pe CPU [ID=4], parintele [ID=136] mai are 0 copii
+Firului de executie [ID=144] i-au fost alocate 2 cuante pana la finalizare
+Firului de executie [ID=152] i-au fost alocate 5 cuante pana la finalizare
 
-[ERROR][CPU:04]Kernel panic!
-[ERROR][CPU:04]Thread: [idle-04]
-[ERROR][CPU:04]Received ASSERT IPI
+ >>> [REZULTAT FINAL] Fibonacci(8) este: 21 <<<
 
-[ERROR][CPU:00]Kernel panic!
-[ERROR][CPU:00]Thread: [idle-00]
-[ERROR][CPU:00]Received ASSERT IPI
-
-[ERROR][CPU:07]Kernel panic!
-[ERROR][CPU:07]Thread: [idle-07]
-[ERROR][CPU:07]Received ASSERT IPI
-
-[ERROR][CPU:01]Kernel panic!
-[ERROR][CPU:01]Thread: [idle-01]
-[ERROR][CPU:01]Received ASSERT IPI
-
+Thread [ID=136] creat pe CPU [ID=0] se termina pe CPU [ID=2], parintele [ID=0] mai are 1 copii
+Firului de executie [ID=136] i-au fost alocate 3 cuante pana la finalizare
+[core.c][154]System is IDLE!
