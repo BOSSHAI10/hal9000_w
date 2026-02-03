@@ -728,6 +728,13 @@
 /home/alexandrusb/hal9000/HAL/build/User-mode/Applications/Tests/VirtualMemory/Syscalls/VirtualSharedNormal/CMakeFiles/install.dir
 /home/alexandrusb/hal9000/HAL/build/User-mode/Applications/Tests/VirtualMemory/Syscalls/VirtualSharedNormal/CMakeFiles/install/local.dir
 /home/alexandrusb/hal9000/HAL/build/User-mode/Applications/Tests/VirtualMemory/Syscalls/VirtualSharedNormal/CMakeFiles/install/strip.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/LightProjectApp.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/edit_cache.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/rebuild_cache.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/list_install_components.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/install.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/install/local.dir
+/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/CMakeFiles/install/strip.dir
 /home/alexandrusb/hal9000/HAL/build/ACPI/CMakeFiles/Acpica.dir
 /home/alexandrusb/hal9000/HAL/build/ACPI/CMakeFiles/edit_cache.dir
 /home/alexandrusb/hal9000/HAL/build/ACPI/CMakeFiles/rebuild_cache.dir

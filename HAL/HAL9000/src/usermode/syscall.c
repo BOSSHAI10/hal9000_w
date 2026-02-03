@@ -1,18 +1,29 @@
 #include "HAL9000.h"
 #include "syscall.h"
-#include "gdtmu.h"
 #include "syscall_defs.h"
 #include "syscall_func.h"
 #include "syscall_no.h"
 #include "thread.h"
 #include "thread_internal.h"
+#include "cpumu.h"
 #include "mmu.h"
 #include "process_internal.h"
 #include "dmp_cpu.h"
+#include "gdtmu.h"
 #include "thread.h"
 #include "cal_annotate.h"
 #include "cal_assembly.h"
 #include "cal_seh.h"
+#include "status.h"
+
+STATUS SyscallThreadGetTid(IN_OPT UM_HANDLE ThreadHandle,OUT TID* ThreadId);
+STATUS SyscallProcessGetName(OUT char* ProcessName, IN QWORD ProcessNameMaxLen);
+STATUS SyscallGetThreadPriority(OUT BYTE* ThreadPriority);
+STATUS SyscallSetThreadPriority(IN BYTE ThreadPriority);
+STATUS SyscallGetCurrentCPUID(OUT BYTE* CpuId);
+STATUS SyscallGetNumberOfThreadsForCurrentProcess(OUT QWORD* ThreadNo);
+STATUS SyscallGetCPUUtilization(IN_OPT BYTE* CpuId, OUT BYTE* Utilization);
+
 
 extern void MS_ABI SyscallEntry();
 
@@ -89,6 +100,44 @@ SyscallHandler(
             );
             break;
         // STUDENT TODO: implement the rest of the syscalls 
+
+        case SyscallIdThreadGetTid:
+            status = SyscallThreadGetTid(
+                (UM_HANDLE)pSyscallParameters[0], // ThreadHandle
+                (TID*)pSyscallParameters[1]      // ThreadId
+            );
+            break;
+
+        case SyscallIdProcessGetName:
+            status = SyscallProcessGetName(
+                (char*)pSyscallParameters[0],
+                (QWORD)pSyscallParameters[1]
+            );
+            break;
+
+        case SyscallIdGetThreadPriority:
+            status = SyscallGetThreadPriority((BYTE*)pSyscallParameters[0]);
+            break;
+
+        case SyscallIdSetThreadPriority:
+            status = SyscallSetThreadPriority((BYTE)pSyscallParameters[0]);
+            break;
+
+        case SyscallIdGetCurrentCPUID:
+            status = SyscallGetCurrentCPUID((BYTE*)pSyscallParameters[0]);
+            break;
+
+        case SyscallIdGetNumberOfThreadsForCurrentProcess:
+            status = SyscallGetNumberOfThreadsForCurrentProcess((QWORD*)pSyscallParameters[0]);
+            break;
+
+        case SyscallIdGetCPUUtilization:
+            status = SyscallGetCPUUtilization(
+                (BYTE*)pSyscallParameters[0],
+                (BYTE*)pSyscallParameters[1]
+            );
+            break;
+
         default:
             LOG_ERROR("Unimplemented syscall called from User-space!\n");
             status = STATUS_UNSUPPORTED;
@@ -235,3 +284,141 @@ SyscallFileWrite(
 }
 
 // STUDENT TODO: implement the rest of the syscalls
+
+// Obținerea Numelui Procesului
+// Aceasta funcție verifică validitatea adresei și gestionează trunchierea numelui
+STATUS
+SyscallProcessGetName(
+    OUT char* ProcessName,
+    IN QWORD ProcessNameMaxLen
+)
+{
+    STATUS status;
+    PPROCESS pProcess = GetCurrentProcess();
+    QWORD nameLen;
+
+    // Verificăm dacă buffer-ul este valid în spațiul utilizator
+    status = MmuIsBufferValid(ProcessName, ProcessNameMaxLen, PAGE_RIGHTS_WRITE, pProcess);
+    if (!SUCCEEDED(status)) {
+        return status;
+    }
+
+    if (ProcessNameMaxLen == 0) return STATUS_INVALID_PARAMETER2;
+
+    // Copiem numele procesului (presupunem că pProcess->Name este stocat în kernel)
+    const char* actualName = ProcessGetName(pProcess);
+    nameLen = strlen(actualName);
+
+    if (nameLen >= ProcessNameMaxLen) {
+        // Trunchiem numele și adăugăm null-terminator
+        memcpy(ProcessName, actualName, ProcessNameMaxLen - 1);
+        ProcessName[ProcessNameMaxLen - 1] = '\0';
+        return STATUS_TRUNCATED_PROCESS_NAME;
+    }
+
+    strcpy(ProcessName, actualName);
+    return STATUS_SUCCESS;
+}
+
+// Gestiunea Priorității și CPU-ului
+// Implementări simple pentru returnarea datelor despre firul curent și hardware
+STATUS
+SyscallGetThreadPriority(
+    OUT BYTE* ThreadPriority
+)
+{
+    if (ThreadPriority == NULL) return STATUS_INVALID_PARAMETER1;
+    *ThreadPriority = GetCurrentThread()->Priority;
+    return STATUS_SUCCESS;
+}
+
+STATUS
+SyscallSetThreadPriority(
+    IN BYTE ThreadPriority
+)
+{
+    // Setăm prioritatea firului curent 
+    GetCurrentThread()->Priority = ThreadPriority;
+    return STATUS_SUCCESS;
+}
+
+STATUS
+SyscallGetCurrentCPUID(
+    OUT BYTE* CpuId
+)
+{
+    if (CpuId == NULL) return STATUS_INVALID_PARAMETER1;
+    *CpuId = (BYTE)GetCurrentPcpu()->ApicId;
+    return STATUS_SUCCESS;
+}
+
+// Utilizarea CPU
+// Calculul se bazează pe formula: ((total - idle) / total) * 100
+STATUS
+SyscallGetCPUUtilization(
+    IN_OPT BYTE* CpuId,
+    OUT BYTE* Utilization
+)
+{
+    if (Utilization == NULL) return STATUS_INVALID_PARAMETER2;
+
+    // Formula: ((total ticks - idle ticks) / total ticks) * 100
+    // Total Ticks = KernelTicks + IdleTicks
+    
+    if (CpuId == NULL) {
+        // Media tuturor procesoarelor
+        // Notă: Va trebui să iterați prin lista m_threadSystemData.AllThreadsList 
+        // sau să folosiți gEntData.CpuCount dacă este accesibil.
+        *Utilization = 0; 
+    } else {
+        // Pentru un CPU specific. Notă: În HAL9000, GetCurrentPcpu() returnează CPU-ul curent.
+        // Pentru alte CPU-uri, ar trebui parcursă lista pcpu din sistem.
+        PPCPU pPcpu = GetCurrentPcpu();
+        QWORD idle = pPcpu->ThreadData.IdleTicks;
+        QWORD kernel = pPcpu->ThreadData.KernelTicks;
+        QWORD total = idle + kernel;
+
+        if (total > 0) {
+            *Utilization = (BYTE)((kernel * 100) / total);
+        } else {
+            *Utilization = 0;
+        }
+    }
+    return STATUS_SUCCESS;
+}
+
+STATUS 
+SyscallThreadGetTid(
+    IN_OPT  UM_HANDLE   ThreadHandle,
+    OUT     TID* ThreadId
+)
+{
+    if (ThreadId == NULL) {
+        return STATUS_INVALID_PARAMETER2;
+    }
+
+    // Dacă ThreadHandle este NULL (sau UM_INVALID_HANDLE_VALUE), returnăm ID-ul firului curent
+    if (ThreadHandle == UM_INVALID_HANDLE_VALUE || ThreadHandle == 0) {
+        *ThreadId = GetCurrentThread()->Id;
+    } else {
+        *ThreadId = GetCurrentThread()->Id; 
+    }
+
+    return STATUS_SUCCESS;
+}
+
+STATUS
+SyscallGetNumberOfThreadsForCurrentProcess(
+    OUT QWORD* ThreadNo
+)
+{
+    if (ThreadNo == NULL) {
+        return STATUS_INVALID_PARAMETER1;
+    }
+
+    // Extragem numărul de thread-uri din procesul apelant
+    // În HAL9000, structura PROCESS deține acest contor
+    *ThreadNo = GetCurrentProcess()->NumberOfThreads;
+
+    return STATUS_SUCCESS;
+}

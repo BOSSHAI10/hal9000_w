@@ -10,6 +10,8 @@ typedef enum _SYSCALL_ID
     SyscallIdThreadGetTid,
     SyscallIdThreadWaitForTermination,
     SyscallIdThreadCloseHandle,
+    SyscallIdGetThreadPriority,      // Adăugat pt proiect 
+    SyscallIdSetThreadPriority,      // Adăugat pt proiect
 
     // Process Management
     SyscallIdProcessExit,
@@ -17,6 +19,8 @@ typedef enum _SYSCALL_ID
     SyscallIdProcessGetPid,
     SyscallIdProcessWaitForTermination,
     SyscallIdProcessCloseHandle,
+    SyscallIdProcessGetName,         // Adăugat pt proiect
+    SyscallIdGetNumberOfThreadsForCurrentProcess, // Adăugat pt proiect
 
     // Memory management 
     SyscallIdVirtualAlloc,
@@ -27,6 +31,10 @@ typedef enum _SYSCALL_ID
     SyscallIdFileClose,
     SyscallIdFileRead,
     SyscallIdFileWrite,
+
+    // System Info
+    SyscallIdGetCurrentCPUID,        // Adăugat pt proiect
+    SyscallIdGetCPUUtilization,      // Adăugat pt proiect
 
     SyscallIdReserved = SyscallIdFileWrite + 1
 } SYSCALL_ID;

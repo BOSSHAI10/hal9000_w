@@ -1171,6 +1171,12 @@
 },
 {
   "directory": "/home/alexandrusb/hal9000/HAL/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/HAL/Shared/common -I/home/alexandrusb/hal9000/HAL/Shared/kernel -I/home/alexandrusb/hal9000/HAL/CommonLib/inc -I/home/alexandrusb/hal9000/HAL/User-mode/Utils/UsermodeLibrary/inc -I/home/alexandrusb/hal9000/HAL/CompilerAbstraction/inc --target=x86_64-elf -g -fno-stack-protector -fno-builtin -ffreestanding -c -o User-mode/Applications/LightProjectApp/CMakeFiles/LightProjectApp.dir/main.c.obj /home/alexandrusb/hal9000/HAL/User-mode/Applications/LightProjectApp/main.c",
+  "file": "/home/alexandrusb/hal9000/HAL/User-mode/Applications/LightProjectApp/main.c",
+  "output": "User-mode/Applications/LightProjectApp/CMakeFiles/LightProjectApp.dir/main.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/HAL/build",
   "command": "/usr/bin/clang -DACPI_LIBRARY -DDRIVER -DNDEBUG -DPROCESSOR_ARCHITECTURE=x64 -DWIN64 -D_GEN -D_WINDOWS -D__HAL9000__ -I/home/alexandrusb/hal9000/HAL/ACPI/inc -I/home/alexandrusb/hal9000/HAL/ACPI/inc/platform --target=x86_64-elf -g -g -w -O1 -MT -fstack-protector-all -ffunction-sections -fshort-wchar -fno-zero-initialized-in-bss -mcmodel=large -c -o ACPI/CMakeFiles/Acpica.dir/src/Debugger/dbcmds.c.obj /home/alexandrusb/hal9000/HAL/ACPI/src/Debugger/dbcmds.c",
   "file": "/home/alexandrusb/hal9000/HAL/ACPI/src/Debugger/dbcmds.c",
   "output": "ACPI/CMakeFiles/Acpica.dir/src/Debugger/dbcmds.c.obj"

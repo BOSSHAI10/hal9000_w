@@ -64,3 +64,4 @@ set(APP_LINK_FLAGS
 add_subdirectory(AppHelloWorld)
 add_subdirectory(TestApp)
 add_subdirectory(Tests)
+add_subdirectory(LightProjectApp)

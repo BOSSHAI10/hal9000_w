@@ -52,3 +52,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/Tests/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/alexandrusb/hal9000/HAL/build/User-mode/Applications/LightProjectApp/cmake_install.cmake")
+endif()
+
