@@ -36,5 +36,9 @@ typedef enum _SYSCALL_ID
     SyscallIdGetCurrentCPUID,        // Adăugat pt proiect
     SyscallIdGetCPUUtilization,      // Adăugat pt proiect
 
+    SyscallIdGetPagePhysAddr,
+    SyscallIdGetPageFaultNo,
+    SyscallIdGetPageInternalFragmentation,
+
     SyscallIdReserved = SyscallIdFileWrite + 1
 } SYSCALL_ID;
