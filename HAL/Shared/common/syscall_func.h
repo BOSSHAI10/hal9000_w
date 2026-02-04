@@ -306,3 +306,59 @@ SyscallFileWrite(
     IN  QWORD                       BytesToWrite,
     OUT QWORD*                      BytesWritten
     );
+
+//*******************************************************************************
+// Declarații adăugate pentru proiect
+// --- Programe Utilizator ---
+//*******************************************************************************
+STATUS
+SyscallProcessGetName(
+    OUT char* ProcessName,
+    IN QWORD ProcessNameMaxLen
+);
+
+STATUS
+SyscallGetThreadPriority(
+    OUT BYTE* ThreadPriority
+);
+
+STATUS
+SyscallSetThreadPriority(
+    IN BYTE ThreadPriority
+);
+
+STATUS
+SyscallGetCurrentCPUID(
+    OUT BYTE* CpuId
+);
+
+STATUS
+SyscallGetNumberOfThreadsForCurrentProcess(
+    OUT QWORD* ThreadNo
+);
+
+STATUS
+SyscallGetCPUUtilization(
+    IN_OPT BYTE* CpuId,
+    OUT BYTE* Utilization
+);
+
+// --- Memorie Virtuală ---
+
+STATUS
+SyscallVirtualAlloc(
+    IN_OPT PVOID BaseAddress,
+    IN QWORD Size,
+    IN DWORD AllocationType,
+    IN DWORD Protect,
+    IN UM_HANDLE FileHandle,
+    IN QWORD Key,
+    OUT PVOID* AllocatedAddress
+);
+
+STATUS
+SyscallVirtualFree(
+    IN PVOID Address,
+    IN QWORD Size,
+    IN DWORD FreeType
+);
